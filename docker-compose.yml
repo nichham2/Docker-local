@@ -71,3 +71,21 @@ services:
       - dev
     entrypoint: ['composer', '--ignore-platform-reqs']
     
+  #adding mariadb to add a database 
+    db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example #add your own root password here 
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user #default user name 
+      MYSQL_PASSWORD: user #default password 
+    
+    volumes: 
+        - ./init:/docker-entrypoint-initdb.d
+        
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
