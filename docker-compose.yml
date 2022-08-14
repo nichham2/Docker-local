@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 networks:
   dev:
@@ -6,7 +6,7 @@ networks:
 services:
   apache:
     build:
-      context: ./apache
+      context: './apache'
       dockerfile: apache.dockerfile
     hostname: 'apache.container'
     container_name: 'apache'
@@ -23,7 +23,7 @@ services:
 
   php_fpm:
     build:
-      context: ./php-fpm
+      context: './php-fpm'
       dockerfile: php.dockerfile
     hostname: 'fpm.container'
     container_name: 'fpm'
@@ -72,7 +72,7 @@ services:
     entrypoint: ['composer', '--ignore-platform-reqs']
     
   #adding mariadb to add a database 
-    db:
+  db:
     image: mariadb
     restart: always
     environment:
