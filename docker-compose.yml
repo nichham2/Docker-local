@@ -15,7 +15,7 @@ services:
     environment: 
       - PROJECT_DIR=/var/www/html
     ports: 
-      - 80:80
+      - 8069:80
     depends_on:
       - php_fpm
     networks:
@@ -30,7 +30,7 @@ services:
     volumes: 
       - ./www:/var/www/html/
     ports:
-      - 9000:9000
+      - 9090:9000
     depends_on: 
       - redis
     networks:
@@ -88,4 +88,4 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 8090:8080
